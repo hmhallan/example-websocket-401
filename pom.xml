@@ -95,6 +95,13 @@
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-websocket</artifactId>
 			<version>9.0.35</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-api</artifactId>
+			<version>9.0.35</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- Test Dependencies -->
@@ -174,6 +181,15 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomee.maven</groupId>
+				<artifactId>tomee-maven-plugin</artifactId>
+				<version>8.0.3-SNAPSHOT</version>
+				<configuration>
+					<tomeeClassifier>microprofile</tomeeClassifier>
+					<args>-Xmx512m -XX:PermSize=256m</args>
 				</configuration>
 			</plugin>
 		</plugins>
