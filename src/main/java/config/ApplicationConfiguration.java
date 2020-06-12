@@ -1,6 +1,5 @@
 package config;
 
-import org.eclipse.microprofile.auth.LoginConfig;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
@@ -17,7 +16,6 @@ import javax.ws.rs.core.Application;
         security = @SecurityRequirement(name = "oauth2"),
         servers = @Server(url = "/example-websocket-401"))
 @ApplicationPath("/api")
-@LoginConfig(authMethod = "MP-JWT")
 public class ApplicationConfiguration extends Application {
 }
 

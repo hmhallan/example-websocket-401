@@ -2,8 +2,14 @@ package tomcatclient;
 
 import org.junit.Test;
 
-import javax.websocket.*;
+import javax.websocket.ClientEndpointConfig;
+import javax.websocket.CloseReason;
+import javax.websocket.ContainerProvider;
+import javax.websocket.DeploymentException;
+import javax.websocket.Endpoint;
+import javax.websocket.EndpointConfig;
 import javax.websocket.MessageHandler.Whole;
+import javax.websocket.Session;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -52,7 +58,7 @@ public class TomcatWsClient {
 
         URI uri = new URI("ws://localhost:8080/example-websocket-401/ws/chat");
 
-        Session session = new org.apache.tomcat.websocket.WsWebSocketContainer()
+        Session session = ContainerProvider.getWebSocketContainer()
                 .connectToServer(
                         endpoint,
                         authorizationConfiguration,
@@ -60,6 +66,5 @@ public class TomcatWsClient {
                 );
 
         session.close();
-
     }
 }
